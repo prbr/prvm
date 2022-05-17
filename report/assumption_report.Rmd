@@ -1,0 +1,32 @@
+---
+title: "Assumption Report"
+author: "P. Brandicourt"
+date: "October 6, 2016"
+output: word_document
+params:
+  path: 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      dev ="CairoPNG")
+library(knitr)
+load(params$path)
+```
+
+```{r include = FALSE}
+out = NULL
+
+for (i in 1:length(sims))
+{
+  out = c(out, knit_expand(file = system.file("report/child.Rmd",package = "prvm")))
+
+}
+
+
+
+```
+
+### Uncertainty Distributions
+
+`r paste(knit(text = out), collapse = '\n')`

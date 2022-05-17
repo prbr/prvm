@@ -1,0 +1,10 @@
+
+##Cost Item: `r names(sims)[[{{i}}]]`
+
+```{r echo=FALSE}
+library(ggplot2)
+library(prvm)
+    
+    p <- mc_plot(sims[[{{i}}]],name= names(sims)[[{{i}}]])
+    print(p)
+```

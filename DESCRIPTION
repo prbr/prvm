@@ -1,0 +1,14 @@
+Package: prvm
+Imports:
+    dplyr,
+    mc2d
+Type: Package
+Title: Functions to support Project Risk and Value Management work
+Version: 0.1
+Date: 2016-04-21
+Authors@R: person("Pierre", "Brandicourt", email = "pierre.brandicourt@genesisoilandgas.com",
+  role = c("aut", "cre"))
+Description: Support Probabilistic Risk Analysis from sampling to visualization
+License: MIT
+LazyData: TRUE
+RoxygenNote: 5.0.1

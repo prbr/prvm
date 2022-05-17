@@ -1,0 +1,61 @@
+---
+title: "Cost_Analysis_Report"
+author: "P. Brandicourt"
+date: "April 28, 2016"
+output: 
+  word_document: 
+    fig_height: 5
+    fig_width: 7
+params:
+  ref_Total: 10000000
+  path: "var.Rdata"
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(
+  fig.width = 7,
+  fig.height = 5,
+  dev = "CairoPNG",
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE
+  )
+```
+
+Cost Risk Analysis Report
+
+```{r, echo=FALSE,message=FALSE,warning=FALSE}
+library(prvm)
+library(mc2d)
+library(dplyr)
+library(ggplot2)
+library(knitr)
+```
+
+```{r, echo=FALSE,message=FALSE,warning=FALSE}
+#cost = rpert(10000,.8,1,1.3)*10000000
+load(params$path)
+ref_Total = params$ref_Total
+pdf_cost = mc_plot(cost)
+pt_cost = p_table(cost,reference = ref_Total)
+st_cost = stat_table(cost,reference = ref_Total)
+```
+
+
+# Cost Distribution
+
+```{r, echo=FALSE}
+pdf_cost
+```
+
+# Percentiles (Total)
+
+```{r, results = 'asis', echo = F}
+knitr::kable(pt_cost)
+```
+
+# Statistics (Total)
+
+```{r, results = 'asis', echo = F}
+knitr::kable(st_cost)
+```

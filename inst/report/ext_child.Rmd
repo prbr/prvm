@@ -1,0 +1,10 @@
+
+##Risk Item: `r names(sims)[[{{i}}]]`
+
+```{r echo=FALSE}
+library(ggplot2)
+library(prvm)
+    
+    p <- mc_plot(as.numeric(sims[[{{i}}]]),name= names(sims)[[{{i}}]])
+    print(p)
+```

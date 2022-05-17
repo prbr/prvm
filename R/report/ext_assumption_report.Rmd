@@ -1,0 +1,30 @@
+---
+title: "Assumption Report"
+author: "P. Brandicourt"
+date: "October 6, 2016"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      dev ="CairoPNG")
+library(knitr)
+```
+
+```{r include = FALSE}
+out = NULL
+
+load("ext_draws.Rdata")
+for (i in 1:length(ext_draws))
+{
+  out = c(out, knit_expand(file = "ext_child.rmd"))
+
+}
+
+
+
+```
+
+### External Risk Distributions
+
+`r paste(knit(text = out), collapse = '\n')`

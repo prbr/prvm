@@ -1,0 +1,10 @@
+
+##Risk Item: `r names(ext_draws)[[{{i}}]]`
+
+```{r echo=FALSE}
+library(ggplot2)
+library(prvm)
+    
+    p <- mc_plot(as.numeric(ext_draws[[{{i}}]]),name= names(ext_draws)[[{{i}}]])
+    print(p)
+```
